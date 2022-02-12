@@ -9,6 +9,7 @@ const nameArray = [
     "Jack",
     "Jill",
     "Jenny",
+    "panfilo",
 ]
 
 app.use(bodyParser.json());
@@ -22,3 +23,4 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
