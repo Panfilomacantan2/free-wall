@@ -3,13 +3,14 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 3000;
 const nameArray = [
-    "John",
-    "Jane",
-    "Joe",
-    "Jack",
-    "Jill",
-    "Jenny",
-    "panfilo",
+    "Brixson Lajara",
+    "Panfilo macantan",
+    "Kevin Alcuetas",
+    "franz Arcebal Cayubit",
+    "This REST API is created by Panfilo macantan",
+    "This REST API is made of Nodejs, Express, and Mysql",
+
+
 ]
 
 app.use(bodyParser.json());
