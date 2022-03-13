@@ -1,7 +1,6 @@
 {
   "name": "nodeapi",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
@@ -12,9 +11,22 @@
   "dependencies": {
     "body-parser": "^1.19.1",
     "cors": "^2.8.5",
-    "express": "^4.17.2"
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "mongodb": "^4.4.1",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Panfilomacantan2/panfilo-online-store.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Panfilomacantan2/panfilo-online-store/issues"
+  },
+  "homepage": "https://github.com/Panfilomacantan2/panfilo-online-store#readme",
+  "description": ""
 }
