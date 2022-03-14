@@ -6,6 +6,7 @@ const dbConfig = config.get("Users.dbConfig.dbName");
 const port = process.env.PORT || 3000;
 const cors = require("cors");
 const mongoose = require("mongoose");
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,10 +17,11 @@ const createUserService = require("./Services/createUser");
 app.use("/post", AppRoutes);
 app.use("/", createUserService);
 
-app.use(cors());
 mongoose
   .connect(dbConfig)
-  .then(() => { console.log("Connected to database!")})
+  .then(() => {
+    console.log("Connected to database!");
+  })
   .catch(() => {
     console.log("Connection failed!");
   });
