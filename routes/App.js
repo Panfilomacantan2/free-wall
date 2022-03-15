@@ -36,8 +36,16 @@ router.get("/:userId", (req, res) => {
   res.send(userId);
 });
 
-router.delete("/:userId", (req, res) => {
+router.delete("/", (req, res) => {
   const { userId } = req.params;
   res.send(userId);
+  User.delete({}, (err, result) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.json(result);
+    }
+  });
 });
+
 module.exports = router;
