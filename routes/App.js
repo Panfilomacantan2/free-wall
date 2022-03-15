@@ -36,10 +36,10 @@ router.get("/:userId", (req, res) => {
   res.send(userId);
 });
 
-router.delete("/", (req, res) => {
+router.delete("/:id", (req, res) => {
   const { userId } = req.params;
   res.send(userId);
-  User.delete({}, (err, result) => {
+  User.deleteMany({}, (err, result) => {
     if (err) {
       res.status(500).send(err);
     } else {
