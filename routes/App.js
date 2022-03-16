@@ -47,6 +47,18 @@ router.put("/", (req, res) => {
     }
   });
 });
+
+router.delete("/:userId", (req, res) => {
+  const { userId } = req.params;
+  User.deleteOne({ _id: userId }, (err, result) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.json(result);
+    }
+  });
+});
+
 router.delete("/", (req, res) => {
   // const { userId } = req.params;
   // res.send(userId);
