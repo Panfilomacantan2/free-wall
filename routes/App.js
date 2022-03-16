@@ -36,7 +36,7 @@ router.get("/:userId", (req, res) => {
   res.send(userId);
 });
 
-router.post("/", (req, res) => {
+router.delete("/", (req, res) => {
   // const { userId } = req.params;
   // res.send(userId);
   User.deleteMany({}, (err, result) => {
