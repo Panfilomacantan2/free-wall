@@ -6,26 +6,29 @@ const dbConfig = config.get("Users.dbConfig.dbName");
 const port = process.env.PORT || 3000;
 const cors = require("cors");
 const mongoose = require("mongoose");
-app.use(cors());
-app.use(bodyParser.json());
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 //Import routes
 const AppRoutes = require("./routes/App");
 const createUserService = require("./Services/createUser");
+
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/post", AppRoutes);
 app.use("/", createUserService);
 
-mongoose
-  .connect(dbConfig)
-  .then(() => {
+//Connect to MongoDB
+const initializeDB = async () => {
+  try {
+    await mongoose.connect(dbConfig);
     console.log("Connected to database!");
-  })
-  .catch(() => {
-    console.log("Connection failed!");
-  });
-// Middleware
+  } catch (err) {
+    console.log("Connection failed error: " + err);
+  }
+};
+initializeDB();
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

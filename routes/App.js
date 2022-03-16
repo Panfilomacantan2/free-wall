@@ -16,14 +16,13 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   const { name } = req.body;
-  res.send(`Hello ${name}`);
+  res.status(200).send(`Hello ${name}`);
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
   });
 
-  user
-    .save()
+  user.save()
     .then((result) => {
       console.log(result);
     })
@@ -60,8 +59,6 @@ router.delete("/:userId", (req, res) => {
 });
 
 router.delete("/", (req, res) => {
-  // const { userId } = req.params;
-  // res.send(userId);
   User.deleteMany({}, (err, result) => {
     if (err) {
       res.status(500).send(err);
