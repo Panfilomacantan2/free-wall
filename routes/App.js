@@ -15,7 +15,8 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  res.send(`Hello ${req.body.name}`);
+  const { name } = req.body;
+  res.send(`Hello ${name}`);
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
@@ -36,6 +37,16 @@ router.get("/:userId", (req, res) => {
   res.send(userId);
 });
 
+router.put("/", (req, res) => {
+  const { _id, name } = req.body;
+  User.updateOne({ _id: _id }, { $set: { name: name } }, (err, result) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.json(result);
+    }
+  });
+});
 router.delete("/", (req, res) => {
   // const { userId } = req.params;
   // res.send(userId);
