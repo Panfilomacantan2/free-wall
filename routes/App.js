@@ -22,7 +22,8 @@ router.post("/", (req, res) => {
     name: req.body.name,
   });
 
-  user.save()
+  user
+    .save()
     .then((result) => {
       console.log(result);
     })
