@@ -1,4 +1,8 @@
-export const getAllUsers = (req, res) => {
+
+import mongoose from "mongoose";
+import User from "../model/User.js";
+
+const getAllUsers = async (req, res) => {
   User.find({}, (err, user) => {
     if (err) {
       res.status(500).send(err);
@@ -8,7 +12,7 @@ export const getAllUsers = (req, res) => {
   });
 };
 
-export const createUser = (req, res) => {
+const createUser = async (req, res) => {
   const { name } = req.body;
   res.status(200).send(`Hello ${name}`);
   const user = new User({
@@ -26,12 +30,12 @@ export const createUser = (req, res) => {
     });
 };
 
-export const getUserById = (req, res) => {
+const getUserById = async (req, res) => {
   const { userId } = req.params;
   res.send(userId);
 };
 
-export const updateUser = (req, res) => {
+const updateUser = async (req, res) => {
   const { _id, name } = req.body;
   User.updateOne({ _id: _id }, { $set: { name: name } }, (err, result) => {
     if (err) {
@@ -42,7 +46,7 @@ export const updateUser = (req, res) => {
   });
 };
 
-const deleteUser = (req, res) => {
+const deleteUser = async (req, res) => {
   User.deleteMany({}, (err, result) => {
     if (err) {
       res.status(500).send(err);
@@ -52,7 +56,7 @@ const deleteUser = (req, res) => {
   });
 };
 
-const deleteUserById = (req, res) => {
+const deleteUserById = async (req, res) => {
   const { userId } = req.params;
   User.deleteOne({ _id: userId }, (err, result) => {
     if (err) {
@@ -61,4 +65,13 @@ const deleteUserById = (req, res) => {
       res.json(result);
     }
   });
+};
+
+export {
+  getAllUsers,
+  createUser,
+  getUserById,
+  updateUser,
+  deleteUser,
+  deleteUserById,
 };

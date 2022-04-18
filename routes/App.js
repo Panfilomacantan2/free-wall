@@ -1,18 +1,14 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const mongoose = require("mongoose");
-const User = require("../model/User");
-
-const {
+import {
   getAllUsers,
   getUserById,
   createUser,
   updateUser,
   deleteUser,
   deleteUserById,
-} = require("../controller/user");
-
+} from "../controller/user.js";
 
 router.get("/", getAllUsers);
 
@@ -26,4 +22,4 @@ router.delete("/:userId", deleteUserById);
 
 router.delete("/", deleteUser);
 
-module.exports = router;
+export default router;

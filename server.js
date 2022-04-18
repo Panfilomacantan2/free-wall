@@ -1,15 +1,16 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+import express from "express";
+import bodyParser from "body-parser";
 const app = express();
-const config = require("config");
+
+import config from "config";
 const dbConfig = config.get("Users.dbConfig.dbName");
 const port = process.env.PORT || 3000;
-const cors = require("cors");
-const mongoose = require("mongoose");
+import cors from "cors";
+import mongoose from "mongoose";
 
 //Import routes
-const AppRoutes = require("./routes/App");
-const createUserService = require("./Services/createUser");
+import AppRoutes from "./routes/App.js";
+import createUserService from "./Services/createUser.js";
 
 // Middleware
 app.use(cors());
