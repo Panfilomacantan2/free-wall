@@ -1,9 +1,9 @@
 {
-  "Users": {
-    "dbConfig": {
-      "host": "localhost",
-      "port": 5984,
-      "dbName": "mongodb+srv://programmix:vbudhuIUQuQc59aZ@cluster0.3mo7c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-    }
-  }
+	"Users": {
+		"dbConfig": {
+			"host": "localhost",
+			"port": 5984,
+			"dbName": "mongodb+srv://programmix:gJwevaSDRU8wNjYF@cluster0.3mo7c.mongodb.net/?retryWrites=true&w=majority"
+		}
+	}
 }
